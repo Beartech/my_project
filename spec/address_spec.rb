@@ -12,10 +12,12 @@ describe Address do
   end
 
   it 'should have a name' do
-    subject.name.should == 116
+    subject.name.should == '116'
   end
 
   it 'should put a suffix in the @suffix variable if it has one' do
     subject.suffix.should == 'TH'
   end
+
+
 end

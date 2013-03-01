@@ -19,8 +19,4 @@ describe AddressFormat do
     subject.addr_format.should == {max_digits: 5, EW: 'N|S|E|W|SE', name: 'name', suffix: 'suffix', type: 'type', NS: 'N|S|E|W|SE'}
   end
 
-
-
-
-
 end
