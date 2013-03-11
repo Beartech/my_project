@@ -5,4 +5,4 @@ Address Validation Gem
   3)can output lists of valid addresses or invalid addresses
   4)can convert a list of addresses in one format (current ValleyCom format) to a new format
   5)a way of reading out the configs and adding new ones
-  6)can use a sqlite3 backend?
+  6)DSL for address validation scripting

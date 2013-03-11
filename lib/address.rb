@@ -3,9 +3,9 @@ $:.unshift File.expand_path('../lib', __FILE__)
 TYPES = %w(ST RD AV AVE WY WAY CT PL)
 DIRS = %w(N S E W SE SW)
 
-class Address
+class Address < Hash
 
-  attr_reader :number, :name, :suffix, :type, :direction, :flag
+  attr_accessor :number, :name, :suffix, :type, :direction, :flag
 
   def initialize(addr_string)
     list = addr_string.upcase.split(' ')
@@ -56,7 +56,45 @@ class Address
   end
 
   def view
+    @addr_hash
+  end
+
+  def to_s
     "#{@addr_hash}"
+  end
+
+  def layout
+    @addr_hash.keys
+  end
+
+  def remove!(var)
+    remove_instance_variable(var)
+    var2 = var.to_s.delete('@')
+    var2 = var2.to_sym
+    @addr_hash.delete(var2)
+  end
+
+end
+
+class AddressList
+
+  attr_reader :addresses, :address_list, :converted
+
+  def initialize(input_file)
+    @address_list = IO.read(input_file).split("\n")
+    @addresses = @address_list.map do |item|
+      Address.new(item)
+    end
+  end
+
+  def convert!(action)
+    if action == 'no suffix'
+      @converted = @addresses.map do |item|
+        item.remove!(:@suffix)
+        item
+       end
+    end
+    @converted
   end
 
 end
