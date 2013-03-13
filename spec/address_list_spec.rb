@@ -67,6 +67,7 @@ describe AddressList do
     subject.convert!('no suffix').each {|item|
       item.instance_variable_defined?(:@suffix).should eq false
     }
+
   end
 
 

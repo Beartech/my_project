@@ -4,5 +4,3 @@ Address Validation Gem
   2)provides a regexp based address validation using settings stored in a config file
   3)can output lists of valid addresses or invalid addresses
   4)can convert a list of addresses in one format (current ValleyCom format) to a new format
-  5)a way of reading out the configs and adding new ones
-  6)DSL for address validation scripting
